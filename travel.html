@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Webpage</title>
+  <style>
+    /* RESET & BASIC STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #69abc4; 
+      color: #333;
+    }
+
+    /* OUTER CONTAINER (BOX MODEL) */
+    .outer-container {
+      margin: 40px auto;              
+      width: 80%;                     
+      max-width: 1000px;             
+      border: 5px solid #555;        
+      padding: 30px;                 
+      background: #efc468;              
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+    .outer-container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      transition: transform 0.5s, text-shadow 0.5s;
+    }
+    header:hover {
+      transform: scale(1.02);
+      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      transition: transform 0.5s, color 0.5s;
+    }
+    header h1:hover {
+      transform: rotate(3deg) scale(1.1);
+      color: #007BFF;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #777;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    header p:hover {
+      transform: translateY(3px);
+      opacity: 0.9;
+    }
+
+    /* NAVIGATION */
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    nav a {
+      display: inline-block;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      position: relative;
+      transition: transform 0.5s, color 0.5s;
+    }
+    nav a:hover {
+      transform: scale(1.1);
+      color: #007BFF; 
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('https://via.placeholder.com/1200x400') no-repeat center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      margin-bottom: 30px;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      transition: transform 0.5s, filter 0.5s;
+    }
+    .hero:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+    .hero h2 {
+      font-size: 2em;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.5s, transform 0.5s;
+    }
+    .hero h2:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+      transform: scale(1.05);
+    }
+
+    /* CONTENT */
+    .content {
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .content h3 {
+      margin-bottom: 10px;
+      color: #007BFF;
+      transition: transform 0.5s, color 0.5s;
+    }
+    .content h3:hover {
+      transform: scale(1.05);
+      color: #0056b3;
+    }
+    .content p {
+      margin-bottom: 15px;
+      transition: transform 0.5s;
+    }
+    .content p:hover {
+      transform: translateX(5px);
+    }
+
+    /* DESTINATIONS GRID */
+    .destinations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .destination-card {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+    .destination-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .destination-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s, filter 0.5s;
+    }
+    .destination-card img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+    .destination-card .info {
+      padding: 15px;
+      transition: background 0.5s, transform 0.5s;
+    }
+    .destination-card .info:hover {
+      background: #e0e0e0;
+      transform: translateY(-3px);
+    }
+    .destination-card .info h4 {
+      margin-bottom: 10px;
+      color: #333;
+      transition: transform 0.5s, color 0.5s;
+    }
+    .destination-card .info h4:hover {
+      transform: scale(1.05);
+      color: #007BFF;
+    }
+    .destination-card .info p {
+      font-size: 0.95em;
+      color: #555;
+      transition: color 0.5s;
+    }
+    .destination-card .info p:hover {
+      color: #333;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 0.9em;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    footer:hover {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-container">
+    <header>
+      <h1>Travel World</h1>
+      <p>Your gateway to global adventures</p>
+    </header>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Destinations</a>
+      <a href="#">Packages</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+      <h2>Explore the Unknown</h2>
+    </div>
+
+    <div class="content">
+      <h3>Welcome to Travel World</h3>
+      <p>
+        At Wander World, we believe travel is not just about visiting places; 
+        it's about experiencing the culture, meeting new people, 
+        and making memories that last a lifetime.
+      </p>
+      <p>
+        Whether you crave the serenity of a secluded beach or the bustling streets 
+        of a vibrant city, our curated travel packages offer something for everyone. 
+        Start your journey with us and discover the wonders that await!
+      </p>
+    </div>
+
+    <div class="destinations">
+      <div class="destination-card">
+        <img src="Paris1.jpg" alt="Paris">
+        <div class="info">
+          <h4>Paris, France</h4>
+          <p>Experience the City of Light with its iconic Eiffel Tower, world-class museums, and romantic atmosphere.</p>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="bali.jpg" alt="Bali">
+        <div class="info">
+          <h4>Bali, Indonesia</h4>
+          <p>Relax on pristine beaches, explore lush rice terraces, and immerse yourself in Balinese culture.</p>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="newy.jpeg" alt="New York">
+        <div class="info">
+          <h4>New York City, USA</h4>
+          <p>Discover the city that never sleeps, from Broadway shows to iconic landmarks like Times Square.</p>
+        </div>
+      </div>
+      <div class="destination-card">
+        <img src="tokyo.jpeg" alt="Tokyo">
+        <div class="info">
+          <h4>Tokyo, Japan</h4>
+          <p>Experience the perfect blend of tradition and modernity in Japan’s vibrant capital city.</p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</body>
+</html>
